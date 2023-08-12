@@ -1,12 +1,20 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { FC } from 'react';
 
-export default function PrimaryButton() {
+interface PrimaryButtomProps {
+    children: string;
+}
+
+const PrimaryButton: FC<PrimaryButtomProps> = ({ children }) => {
+
   return (
     <View>
-        <Text>Primary Button</Text>
+        <Text>{children}</Text>
     </View>
   );
 }
+
+export default PrimaryButton;
 
 const styles = StyleSheet.create({
 
