@@ -1,11 +1,11 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { FC } from 'react';
 
 interface PrimaryButtomProps {
     children: string;
 }
 
-const PrimaryButton: FC<PrimaryButtomProps> = ({ children }) => {
+const PrimaryButton: React.FC<PrimaryButtomProps> = ({ children }) => {
 
   return (
     <View>
