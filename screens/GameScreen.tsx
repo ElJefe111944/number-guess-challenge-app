@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function GameScreen() {
   return (
