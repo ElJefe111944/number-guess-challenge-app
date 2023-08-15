@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import Colours from '../constants/colours';
 
 interface TileProp {
     title: string;
@@ -17,10 +18,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'white',
+    color: Colours.titleTextColour,
     textAlign: 'center',
     borderWidth: 2,
-    borderColor: 'white',
+    borderColor: Colours.titleTextColour,
     padding: 12,
   }
 });
