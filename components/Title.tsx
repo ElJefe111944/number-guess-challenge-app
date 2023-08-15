@@ -1,19 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function GameScreen() {
+interface TileProp {
+    title: string;
+}
+
+export default function GameScreen({ title }: TileProp) {
   return (
       <View>
-        <Text style={styles.title}>Opponent's Guess</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
 
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    padding: 24,
-  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
