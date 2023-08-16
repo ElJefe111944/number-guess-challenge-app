@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 
 // constants
-import Colours from '../constants/colours';
+import Colours from '../../constants/colours';
 
 interface PrimaryButtomProps {
   children: string;

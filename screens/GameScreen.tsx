@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
-import Title from '../components/Title'
+import Title from '../components/ui/Title'
 import Colours from '../constants/colours';
 import { useState } from 'react';
 
@@ -25,6 +25,7 @@ export default function GameScreen({ userNumber }: GameScreenProps) {
   return (
     <View style={styles.screen}>
       <Title title="Opponent's Guess" />
+
       <View>
         <Text>Higher or Lower?</Text>
         <Button title='+' />

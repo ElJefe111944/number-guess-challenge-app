@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Colours from '../constants/colours';
+import Colours from '../../constants/colours';
+
 
 interface TileProp {
     title: string;
