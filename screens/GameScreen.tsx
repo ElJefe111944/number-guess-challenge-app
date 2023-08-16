@@ -25,13 +25,4 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: Colours.titleTextColour,
-    textAlign: 'center',
-    borderWidth: 2,
-    borderColor: Colours.titleTextColour,
-    padding: 12,
-  }
 });
