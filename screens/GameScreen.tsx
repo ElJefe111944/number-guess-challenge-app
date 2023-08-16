@@ -27,10 +27,10 @@ export default function GameScreen({ userNumber }: GameScreenProps) {
   const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber)
   const [currentGuess, setCurrentGuess] = useState<number>(initialGuess);
 
-  function nextGuessHandler(direction: string){
+  function nextGuessHandler(direction: string) {
 
-    if(direction === 'lower'){
-      if(userNumber !== null && currentGuess < userNumber){
+    if (direction === 'lower') {
+      if (userNumber !== null && currentGuess < userNumber) {
         Alert.alert("Don't lie!", "You know that this is wrong...", [
           {
             text: "Sorry!",
@@ -39,26 +39,34 @@ export default function GameScreen({ userNumber }: GameScreenProps) {
         ])
         return;
       }
-    } 
-    
-    if(direction === 'higher'){
-      if(userNumber !== null && currentGuess > userNumber){
+    }
 
+    if (direction === 'higher') {
+      if (userNumber !== null && currentGuess > userNumber) {
+        Alert.alert("Don't lie!", "You know that this is wrong...", [
+          {
+            text: "Sorry!",
+            style: "cancel",
+          }
+        ])
+        console.log('Higher Direction');
+        console.log('currentGuess:', currentGuess);
+        console.log('userNumber:', userNumber);
         return;
       }
-    }        
+    }
     // lower option
-    if(direction === 'lower'){
+    if (direction === 'lower') {
       maxBoundary = currentGuess;
     } else {
       // higher option
       minBoundary = currentGuess + 1;
     }
-    console.log(minBoundary,maxBoundary)
+    console.log(minBoundary, maxBoundary)
     const newRndNum = generateRandomBetween(minBoundary, maxBoundary, currentGuess);
     setCurrentGuess(newRndNum);
   };
-  
+
 
   return (
     <View style={styles.screen}>
