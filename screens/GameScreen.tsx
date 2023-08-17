@@ -25,11 +25,12 @@ let maxBoundary = 100;
 
 export default function GameScreen({ userNumber, gameOverHandler }: GameScreenProps) {
 
-  const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber)
+  const initialGuess = generateRandomBetween(1, 100, userNumber)
   const [currentGuess, setCurrentGuess] = useState<number>(initialGuess);
 
   useEffect(() => {
     if(currentGuess === userNumber){
+      console.log(`currentGuess: ${currentGuess}, userNumber: ${userNumber}`)
       gameOverHandler();
     }
 
