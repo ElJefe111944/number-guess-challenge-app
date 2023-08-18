@@ -3,6 +3,7 @@ import Title from '../components/ui/Title'
 import { useEffect, useState } from 'react';
 import NumberContainer from '../components/game/NumberContainer';
 import PrimaryButton from '../components/ui/PrimaryButton';
+import Card from '../components/ui/Card';
 
 interface GameScreenProps {
   userNumber: number | null;
@@ -80,13 +81,13 @@ export default function GameScreen({ userNumber, gameOverHandler }: GameScreenPr
       <NumberContainer>
         {currentGuess}
       </NumberContainer>
-      <View>
+      <Card>
         <Text>Higher or Lower?</Text>
         <View>
           <PrimaryButton onPress={() => nextGuessHandler('lower')}>-</PrimaryButton>
           <PrimaryButton onPress={() => nextGuessHandler('higher')}>+</PrimaryButton>
         </View>
-      </View>
+      </Card>
       <View>
         <Text>
           Round Logs
