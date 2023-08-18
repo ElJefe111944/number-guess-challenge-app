@@ -1,11 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Colours from '../../constants/colours';
 
 
 interface CardProps {
     children: React.ReactNode;
 }
-
 
 export default function Card({ children }: CardProps) {
     return (
