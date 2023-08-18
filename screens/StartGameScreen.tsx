@@ -3,6 +3,7 @@ import PrimaryButton from '../components/ui/PrimaryButton';
 import { useState } from 'react';
 import Colours from '../constants/colours';
 import Title from '../components/ui/Title'
+import Card from '../components/ui/Card';
 
 interface StartGameScreenProp {
   startGameHandler: (selectedNumber: number) => void;
@@ -46,7 +47,7 @@ export default function StartGameScreen({ startGameHandler }: StartGameScreenPro
   return (
     <View style={styles.rootContainer}>
       <Title title='Guess my Number' />
-      <View style={styles.inputContainer}>
+      <Card>
         <Text style={styles.inputInstructionText}>Enter a number</Text>
         <TextInput
           style={styles.numberInput}
@@ -65,7 +66,7 @@ export default function StartGameScreen({ startGameHandler }: StartGameScreenPro
             <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
           </View>
         </View>
-      </View>
+      </Card>
     </View>
   );
 }
@@ -75,22 +76,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 100,
     alignItems: 'center',
-  },
-  inputContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-    marginTop: 36,
-    marginHorizontal: 24,
-    backgroundColor: Colours.primary500,
-    borderRadius: 8,
-    elevation: 4,
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    shadowOpacity: 0.25,
-    textAlign: 'center',
-
   },
   inputInstructionText: {
     color: Colours.secondary500,
