@@ -5,6 +5,7 @@ import NumberContainer from '../components/game/NumberContainer';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import Card from '../components/ui/Card';
 import InstructionText from '../components/ui/InstructionText'
+import { Ionicons } from '@expo/vector-icons';
 
 interface GameScreenProps {
   userNumber: number | null;
@@ -86,10 +87,14 @@ export default function GameScreen({ userNumber, gameOverHandler }: GameScreenPr
         <InstructionText style={styles.instructionText}>Higher or Lower?</InstructionText>
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={() => nextGuessHandler('lower')}>-</PrimaryButton>
+            <PrimaryButton onPress={() => nextGuessHandler('lower')}>
+              <Ionicons name="md-remove" size={24} color="white" />
+            </PrimaryButton>
           </View>
           <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={() => nextGuessHandler('higher')}>+</PrimaryButton>
+            <PrimaryButton onPress={() => nextGuessHandler('higher')}>
+              <Ionicons name="add" size={24} color="white" />
+            </PrimaryButton>
           </View>
         </View>
       </Card>
