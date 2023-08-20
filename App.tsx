@@ -1,14 +1,16 @@
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useState } from 'react';
+import { useState,  useEffect } from 'react';
 import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 // screens
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import Colours from './constants/colours';
 import GameOverScreen from './screens/GameOverScreen';
 
-
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
 
@@ -29,9 +31,13 @@ export default function App() {
     setGameOver(true);
   };
 
-  if(!fontsLoaded){
-    return null
-  }
+  useEffect(() => {
+    // Hide the splash screen once fonts are loaded
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
 
   let screen = <StartGameScreen startGameHandler={startGameHandler} />;
 
@@ -39,13 +45,13 @@ export default function App() {
     screen = <GameScreen userNumber={userNumber} gameOverHandler={gameOverHandler} />
   }
 
-  if(gameOver && userNumber){
+  if (gameOver && userNumber) {
     screen = <GameOverScreen />
   }
 
   return (
     <LinearGradient
-      colors={[ Colours.secondary500, Colours.primary600 ]}
+      colors={[Colours.secondary500, Colours.primary600]}
       style={styles.rootScreen}>
       <ImageBackground
         source={require('./assets/images/background.png')}
