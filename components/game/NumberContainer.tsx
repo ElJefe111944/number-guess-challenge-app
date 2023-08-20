@@ -27,6 +27,6 @@ const styles = StyleSheet.create({
     numberText: {
         color: Colours.primary600,
         fontSize: 36,
-        fontWeight: 'bold',
+        fontFamily: 'Open-Sans-Bold',
     }
 });

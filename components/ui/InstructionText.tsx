@@ -16,5 +16,6 @@ const styles = StyleSheet.create({
     inputInstructionText: {
         color: Colours.secondary500,
         fontSize: 24,
+        fontFamily: 'Open-Sans',
       },
 });
