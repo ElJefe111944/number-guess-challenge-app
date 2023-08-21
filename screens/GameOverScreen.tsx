@@ -1,4 +1,4 @@
-import { StyleSheet, Image, View } from 'react-native';
+import { StyleSheet, Image, View, Text } from 'react-native';
 import Title from '../components/ui/Title'
 import Colours from '../constants/colours';
 
@@ -12,6 +12,7 @@ export default function GameOverScreen() {
           source={require('../assets/images/success.png')}
         />
       </View>
+      <Text style={styles.summaryText}>Your phone neeed <Text style={styles.highlight}>X</Text> rounds to guess the number <Text style={styles.highlight}>Y</Text>.</Text>
     </View>
   );
 }
@@ -30,10 +31,19 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: Colours.CtaBackgroundLight,
     overflow: 'hidden',
-    margin: 'auto',
+    margin: 36,
   },
   image: {
     width: '100%',
     height: '100%',
+  },
+  summaryText: {
+    fontFamily: 'Open-Sans-Regular',
+    fontSize: 24,
+    textAlign: 'center',
+  },
+  highlight: {
+    fontFamily: 'Open-Sans-Bold',
+    color: Colours.primary500,
   }
 });
