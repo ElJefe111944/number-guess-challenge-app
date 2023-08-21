@@ -1,6 +1,6 @@
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useState,  useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 // screens
@@ -9,7 +9,8 @@ import GameScreen from './screens/GameScreen';
 import Colours from './constants/colours';
 import GameOverScreen from './screens/GameOverScreen';
 
-// Keep the splash screen visible while we fetch resources
+
+
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -18,9 +19,24 @@ export default function App() {
   const [gameOver, setGameOver] = useState<boolean>(true);
 
   const [fontsLoaded] = useFonts({
-    'Open-Sans': require('./assets/fonts/OpenSans-Regular.ttf'),
-    'Open-Sans-Bold': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'Open-Sans-Regular': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'Open-Sans-Bold': require('./assets/fonts/OpenSans-Bold.ttf'),
   });
+
+  useEffect(() => {
+    const hideSplashScreen = async () => {
+      if (fontsLoaded) {
+        await SplashScreen.hideAsync();
+      }
+    };
+
+    hideSplashScreen();
+
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   const startGameHandler = (selectedNumber: number) => {
     setUserNumber(selectedNumber);
@@ -30,13 +46,6 @@ export default function App() {
   const gameOverHandler = () => {
     setGameOver(true);
   };
-
-  useEffect(() => {
-    // Hide the splash screen once fonts are loaded
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
 
 
   let screen = <StartGameScreen startGameHandler={startGameHandler} />;
