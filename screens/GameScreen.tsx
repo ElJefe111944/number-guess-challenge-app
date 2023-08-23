@@ -106,9 +106,11 @@ export default function GameScreen({ userNumber, gameOverHandler }: GameScreenPr
         </View>
       </Card>
       <View>
-        {guessRounds.map((guessRound) => (
-          <Text key={guessRound}>{guessRound}</Text>
-        ))}
+        <FlatList 
+          data={guessRounds}
+          renderItem={({item}) => <Text>{item}</Text>}
+          keyExtractor={(item) => item.toString()}
+        />
       </View>
     </View>
   );
