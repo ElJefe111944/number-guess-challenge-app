@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View, Alert, FlatList } from 'react-native';
-import Title from '../components/ui/Title'
 import { useEffect, useState } from 'react';
+import { Ionicons } from '@expo/vector-icons';
+import Title from '../components/ui/Title'
 import NumberContainer from '../components/game/NumberContainer';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import Card from '../components/ui/Card';
 import InstructionText from '../components/ui/InstructionText'
-import { Ionicons } from '@expo/vector-icons';
+import GuessLogItem from '../components/game/GuessLogItem';
+
 
 interface GameScreenProps {
   userNumber: number | null;
@@ -83,6 +85,8 @@ export default function GameScreen({ userNumber, gameOverHandler }: GameScreenPr
     setGuessRounds((prevState) => [newRndNum, ...prevState]);
   };
 
+  const guessRoundsListLength = guessRounds.length;
+
 
   return (
     <View style={styles.screen}>
@@ -108,7 +112,7 @@ export default function GameScreen({ userNumber, gameOverHandler }: GameScreenPr
       <View>
         <FlatList 
           data={guessRounds}
-          renderItem={({item}) => <Text>{item}</Text>}
+          renderItem={({item, index}) => <GuessLogItem guess={item} roundNumber={guessRoundsListLength - index} />}
           keyExtractor={(item) => item.toString()}
         />
       </View>

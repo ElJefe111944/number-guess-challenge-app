@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native"
 import Colours from "../../constants/colours";
 
 interface GuessLogItemProps {
-    roundNumber: number | null;
+    roundNumber: number;
     guess: number;
 }
 
