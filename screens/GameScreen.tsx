@@ -11,7 +11,7 @@ import GuessLogItem from '../components/game/GuessLogItem';
 
 interface GameScreenProps {
   userNumber: number | null;
-  gameOverHandler: () => void;
+  gameOverHandler: (numberOfRounds: number) => void;
 }
 
 function generateRandomBetween(min: number, max: number, exclude: number | null) {
@@ -37,7 +37,7 @@ export default function GameScreen({ userNumber, gameOverHandler }: GameScreenPr
   useEffect(() => {
     if(currentGuess === userNumber){
       console.log(`currentGuess: ${currentGuess}, userNumber: ${userNumber}`)
-      gameOverHandler();
+      gameOverHandler(guessRoundsListLength);
     }
 
   }, [currentGuess, userNumber, gameOverHandler]);
