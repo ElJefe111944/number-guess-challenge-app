@@ -109,7 +109,7 @@ export default function GameScreen({ userNumber, gameOverHandler }: GameScreenPr
           </View>
         </View>
       </Card>
-      <View>
+      <View style={styles.listContainer}>
         <FlatList 
           data={guessRounds}
           renderItem={({item, index}) => <GuessLogItem guess={item} roundNumber={guessRoundsListLength - index} />}
@@ -135,5 +135,9 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
+  },
+  listContainer: {
+    flex: 1,
+    padding: 16,
   }
 });
