@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Colours from '../../constants/colours';
 
 
@@ -16,6 +16,9 @@ export default function GameScreen({ title }: TileProp) {
   );
 }
 
+const windowWidth = Dimensions.get('window').width;
+
+
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
@@ -27,5 +30,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Open-Sans-Bold',
     maxWidth: '80%',
     width: 300,
+    marginTop: windowWidth < 480 ? 20 : 0,
   }
 });
