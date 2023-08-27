@@ -53,7 +53,7 @@ export default function StartGameScreen({ startGameHandler }: StartGameScreenPro
     <ScrollView style={styles.screen}>
       <KeyboardAvoidingView style={styles.screen} behavior='position'>
         <View style={[styles.rootContainer, { marginTop: marginTopDistance }]}>
-          <Title title='Guess my Number' />
+          <Title title='Guess My Number' />
           <Card>
             <InstructionText>Enter a Number</InstructionText>
             <TextInput
